@@ -259,6 +259,55 @@ img {
     padding: 120px 20px 60px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+}
+
+/* Hero Raining Sprinkles */
+.hero-sprinkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-sprinkle {
+    position: absolute;
+    width: 10px;
+    height: 28px;
+    border-radius: 5px;
+    opacity: 0;
+    animation: heroRain linear infinite;
+}
+
+.hero-sprinkle.small {
+    width: 7px;
+    height: 20px;
+}
+
+.hero-sprinkle.large {
+    width: 12px;
+    height: 34px;
+}
+
+@keyframes heroRain {
+    0% {
+        transform: translateY(-40px) rotate(var(--rotation, 20deg));
+        opacity: 0;
+    }
+    8% {
+        opacity: 0.85;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateY(100vh) rotate(var(--rotation, 20deg));
+        opacity: 0;
+    }
 }
 
 .hero-content {

@@ -37,6 +37,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-sprinkles" aria-hidden="true"></div>
         <div class="sprinkle-border top"></div>
         <div class="hero-content">
             <img src="images/logo.svg" alt="The CupCaitery" class="hero-logo">
@@ -196,18 +197,57 @@
     </footer>
 
     <script>
-        // Create animated sprinkles
+        // Create raining sprinkles in hero section (on the sides)
+        function createHeroSprinkles() {
+            const container = document.querySelector('.hero-sprinkles');
+            const colors = ['#ff6b9d', '#c490d1', '#67d4c9', '#ffd93d', '#ff9a56', '#a8e6cf', '#b196d6', '#55d0b6'];
+            const sizes = ['', 'small', 'large'];
+
+            // Create sprinkles on left and right sides of the hero
+            for (let i = 0; i < 60; i++) {
+                const sprinkle = document.createElement('div');
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                sprinkle.className = 'hero-sprinkle' + (size ? ' ' + size : '');
+
+                // Position on the sides - left 0-30% or right 70-100%
+                const side = Math.random() > 0.5 ? 'left' : 'right';
+                if (side === 'left') {
+                    sprinkle.style.left = Math.random() * 30 + '%';
+                } else {
+                    sprinkle.style.left = (70 + Math.random() * 30) + '%';
+                }
+
+                // Random rotation for variety
+                const rotation = -35 + Math.random() * 70;
+                sprinkle.style.setProperty('--rotation', rotation + 'deg');
+
+                // Random color
+                sprinkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                // Stagger the animation start times
+                sprinkle.style.animationDelay = Math.random() * 6 + 's';
+
+                // Vary the fall speed
+                sprinkle.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+                container.appendChild(sprinkle);
+            }
+        }
+
+        createHeroSprinkles();
+
+        // Create subtle background sprinkles
         function createSprinkles() {
             const container = document.querySelector('.sprinkles-container');
             const colors = ['#ff6b9d', '#c490d1', '#67d4c9', '#ffd93d', '#ff9a56', '#a8e6cf'];
 
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 40; i++) {
                 const sprinkle = document.createElement('div');
                 sprinkle.className = 'sprinkle';
                 sprinkle.style.left = Math.random() * 100 + '%';
                 sprinkle.style.top = Math.random() * 100 + '%';
                 sprinkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                sprinkle.style.transform = `rotate(${Math.random() * 360}deg)`;
+                sprinkle.style.setProperty('--rotation', (Math.random() * 360) + 'deg');
                 sprinkle.style.animationDelay = Math.random() * 5 + 's';
                 sprinkle.style.animationDuration = (3 + Math.random() * 4) + 's';
                 container.appendChild(sprinkle);
