@@ -429,6 +429,22 @@ img {
     display: inline-block;
 }
 
+.price-note {
+    font-size: 0.85rem;
+    color: var(--brown);
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.minimum-order {
+    font-family: var(--font-fun);
+    font-weight: 600;
+    color: var(--purple);
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+
 /* Gallery Section */
 .gallery {
     padding: 80px 0;
