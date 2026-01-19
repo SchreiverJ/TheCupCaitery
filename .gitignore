@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Playwright MCP (dev testing only)
+.playwright-mcp/
+package.json
+package-lock.json
+
+# Dependencies (if added later)
+node_modules/
+
+# Build output (if added later)
+dist/
+build/
