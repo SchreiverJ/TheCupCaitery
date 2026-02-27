@@ -590,6 +590,11 @@ img {
     box-shadow: var(--shadow-fun);
 }
 
+.contact-btn.email {
+    background: var(--white);
+    color: var(--pink);
+}
+
 .contact-btn.instagram {
     background: var(--white);
     color: #e1306c;
